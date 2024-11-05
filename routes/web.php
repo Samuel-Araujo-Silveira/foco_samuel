@@ -17,4 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/read-xml', 'App\Http\Controllers\XmlController@readXml');
+
 require __DIR__.'/auth.php';
