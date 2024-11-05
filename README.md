@@ -1,70 +1,80 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto de Sistema de Gerenciamento de Acomodações e Reservas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 1. Apresentação do Desenvolvedor
 
-## About Laravel
+### 1.1 - Samuel Araújo Silveira
+Desenvolvedor em formação, com foco em sistemas de informação e soluções web.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1.2 - Estudante do Instituto Federal Baiano
+Atualmente, estudante do Instituto Federal Baiano, explorando conceitos de desenvolvimento full-stack e práticas avançadas com Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 2. Funcionalidades do Sistema
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este sistema é uma API RESTful desenvolvida com Laravel, destinada ao gerenciamento de acomodações e reservas, permitindo desde a importação de dados até operações CRUD completas e agendamentos automáticos de tarefas.
 
-## Learning Laravel
+### 2.1 - Modelagem de Banco de Dados com Migrations do Laravel
+- A estrutura do banco de dados é criada utilizando **migrations do Laravel**, o que garante consistência e facilita a manutenção e atualização.
+- O diagrama abaixo apresenta a modelagem do banco de dados, incluindo as relações entre hotéis, quartos, reservas, pagamentos e outras entidades.
+![diagramaFoco](https://github.com/user-attachments/assets/195f5fe2-f5d0-45da-be4b-f743fb88e8ce)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 2.2 - Importação de Dados XML por URL e por CRON
+- **Importação via URL**: Permite importar dados de arquivos XML (hotéis, quartos, reservas) diretamente a partir de URLs especificadas.
+- **Importação Agendada**: Tarefas agendadas com CRON para atualizar os dados automaticamente em intervalos regulares.
+- **Importação via Comando Artisan**: O comando abaixo permite importar dados XML diretamente via terminal:
+  ```bash
+  php artisan app:import-xml
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### 2.3 - CRUD de Quartos/Acomodações
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+API RESTful para gerenciamento completo de quartos e acomodações, incluindo:
 
-### Premium Partners
+- Listagem de todos os quartos.
+- Criação de novos quartos.
+- Atualização de dados de um quarto específico.
+- Remoção de quartos quando necessário.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 2.4 - POST de Reservas
 
-## Contributing
+API para criação de novas reservas com validações de disponibilidade e integridade de dados.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Permite a especificação de dados como `hotel_id`, `room_id`, `check_in`, `check_out` e `total`, garantindo a consistência das reservas.
 
-## Code of Conduct
+### 2.5 - Padrões de Projeto
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Padrão RESTful**: O projeto adota convenções REST, garantindo uma estrutura coerente e organizada dos endpoints.
+- **Organização Modular**: Separação de responsabilidades entre controladores, modelos e agendamento de tarefas, o que facilita a escalabilidade.
 
-## Security Vulnerabilities
+## 3. Como Executar o Sistema
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Pré-requisitos
 
-## License
+Certifique-se de ter **PHP**, **MySQL** e **Composer** instalados no seu ambiente de desenvolvimento.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# foco_samuel
->>>>>>> 564ab0c859ceb48ca2fa78e38abddb680b696357
+### Passo a Passo para Execução
+
+1. **Clone o Repositório**
+
+   ```bash
+   git clone https://github.com/Samuel-Araujo-Silveira/foco_samuel
+   cd foco_samuel
+
+2. **Deixe as configurações do seu banco de dados dessa forma**
+
+DB_CONNECTION=mysql
+
+DB_HOST=127.0.0.1
+
+DB_PORT=3306
+
+DB_DATABASE=foco
+
+DB_USERNAME=root
+
+DB_PASSWORD=1234
+
+3. **php artisan migrate**
+
+4. **php artisan serve**
+
