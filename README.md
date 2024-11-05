@@ -3,7 +3,7 @@
 ## 1. Apresentação do Desenvolvedor
 
 ### 1.1 - Samuel Araújo Silveira
-Desenvolvedor em formação, com foco em sistemas de informação e soluções web.
+Desenvolvedor em formação.
 
 ### 1.2 - Estudante do Instituto Federal Baiano
 Atualmente, estudante do Instituto Federal Baiano, explorando conceitos de desenvolvimento full-stack e práticas avançadas com Laravel.
